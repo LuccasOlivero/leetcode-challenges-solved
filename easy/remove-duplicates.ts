@@ -5,15 +5,19 @@
 // Change the array nums such that the first k elements of nums contain the unique elements in the order they were present in nums initially. The remaining elements of nums are not important as well as the size of nums.
 // Return k.
 
-var removeDuplicates = function (nums) {
-  let i = 1;
+interface Nums {
+  nums: number;
+}
 
-  for (let j = 1; j < nums.length; j++) {
+var removeDuplicates = function (nums: Nums[]) {
+  let j: number = 1;
+
+  for (let i: number = 1; i < nums.length; i++) {
     if (nums[j] !== nums[i - 1]) {
-      nums[i] = nums[j];
-      i++;
+      nums[j] = nums[i];
+      j++;
     }
   }
 
-  return i;
+  return j;
 };
